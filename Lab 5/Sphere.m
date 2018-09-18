@@ -1,12 +1,11 @@
-tStart=tic;
 clc;
 clear all;
-I = uint8(zeros(128,128));
-r = 40;
+I = uint8(zeros(256,256));
+r = 100;
 center_x = round(size(I,1)/2);
 center_y = round(size(I,2)/2);
-ps = 0;
-qs = 1;
+ps = 1;
+qs = 0;
 for i = 1:size(I,1)
     for j = 1:size(I,2)
         x_adjusted = i - center_x;
@@ -23,4 +22,3 @@ for i = 1:size(I,1)
 endfor
 imshow(I);
 print -djpg image.jpg
-tElapsed=toc(tStart)

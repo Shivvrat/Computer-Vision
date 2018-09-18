@@ -1,3 +1,5 @@
+tStart=tic;
+
 p = load("p.mat");
 q = load("q.mat");
 typeinfo(p)
@@ -18,3 +20,4 @@ for count = 1 : 100
 endfor
 
 save depth_matrix.mat z
+tElapsed=toc(tStart)

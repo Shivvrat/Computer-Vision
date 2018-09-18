@@ -1,5 +1,7 @@
 clc;
 clear all;
+tStart=tic;
+
 I = uint8(zeros(128,128));
 r = 40;
 center_x = round(size(I,1)/2);
@@ -33,8 +35,8 @@ for count = 1 : 100
   j1= size(p,2);
   for i = 3 : (i1 - 3)
     for j = 3 : (j1 - 3)
-      p_n1(i, j) = p_bar(p, i , j) + (lambda / 4) * (E(i , j) - reflectance(p(i, j), q(i, j), ps, qs)) * del_p(p(i, j), q(i, j), ps, qs);
-      q_nl(i, j) = q_bar(q, i , j) + (lambda / 4) * (E(i , j) - reflectance(p(i, j), q(i, j), ps ,qs)) * del_q(p(i, j), q(i, j), ps, qs);
+      p_n1(i, j) = p( i , j) + (lambda / 4) * (E(i , j) - reflectance(p(i, j), q(i, j), ps, qs)) * del_p(p(i, j), q(i, j), ps, qs);
+      q_nl(i, j) = q( i , j) + (lambda / 4) * (E(i , j) - reflectance(p(i, j), q(i, j), ps ,qs)) * del_q(p(i, j), q(i, j), ps, qs);
     endfor
   endfor
   p = p_n1;
@@ -43,4 +45,5 @@ endfor
 
 save p.mat p
 save q.mat q
+tElapsed=toc(tStart)
 
