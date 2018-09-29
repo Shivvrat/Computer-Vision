@@ -1,0 +1,3 @@
+depth - 515.26
+matrix formation - 6.4799
+q1 tElapsed =  1.2303
